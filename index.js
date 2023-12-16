@@ -2,8 +2,6 @@ let url = require("url");
 let http = require("http");
 let {default: puppeteer,executablePath} = require('puppeteer');
 let browser
-require("dotenv").config();
-
 
 (async _ => {
     browser = await puppeteer.launch({
