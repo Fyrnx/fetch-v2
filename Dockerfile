@@ -7,6 +7,6 @@ WORKDIR /usr/src/app
 
 WORKDIR /usr/app
 COPY ./ /usr/app
-RUN npm c
+RUN npm i
 COPY . .
 CMD [ "node" , "index.js" ]
