@@ -2,11 +2,23 @@ let url = require("url");
 let http = require("http");
 let {default: puppeteer,executablePath} = require('puppeteer');
 let browser
+require("dotenv").config();
+
+
 (async _ => {
     browser = await puppeteer.launch({
         headless: "new",
         timeout: 0,
-        executablePath: executablePath(),
+        executablePath: 
+        process.env.NODE_ENV === "production"
+        ? process.env.PUPPETEER_EXECUTABLE_PATH
+        : executablePath(),
+        args: [ 
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+            "--single-process",
+            "--no-zygote"
+        ]
     })
 })()
 
