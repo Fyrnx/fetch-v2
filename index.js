@@ -2,13 +2,13 @@ let url = require("url");
 let http = require("http");
 let {default: puppeteer,executablePath} = require('puppeteer');
 let browser
-(async _ => {
-    browser = await puppeteer.launch({
-        headless: false,
-        timeout: 0,
-        executablePath: executablePath(),
-    })
-})()
+// (async _ => {
+//     browser = await puppeteer.launch({
+//         headless: false,
+//         timeout: 0,
+//         executablePath: executablePath(),
+//     })
+// })()
 
 function wait({selector}) { 
     function waitForSelector(selector) {
@@ -141,4 +141,10 @@ http.createServer(async (req,res) => {
 
     if(scriptResult != undefined) res.end(scriptResult)
     else res.end(JSON.stringify({}))
-}).listen(process.env.PORT ?? 2400)
+}).listen(process.env.PORT ?? 2400,_ => { 
+    console.log("listen to " + process.env.PORT ?? 2400);
+})
+
+console.log(
+    "StartedF"
+);
