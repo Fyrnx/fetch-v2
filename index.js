@@ -2,13 +2,13 @@ let url = require("url");
 let http = require("http");
 let {default: puppeteer,executablePath} = require('puppeteer');
 let browser
-// (async _ => {
-//     browser = await puppeteer.launch({
-//         headless: false,
-//         timeout: 0,
-//         executablePath: executablePath(),
-//     })
-// })()
+(async _ => {
+    browser = await puppeteer.launch({
+        headless: "new",
+        timeout: 0,
+        executablePath: executablePath(),
+    })
+})()
 
 function wait({selector}) { 
     function waitForSelector(selector) {
